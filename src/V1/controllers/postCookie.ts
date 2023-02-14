@@ -1,13 +1,12 @@
 import { RequestHandler } from "express";
 
 const postCookie : RequestHandler =(req, res, next)=>{
-    res.cookie("cookie1","value", {
-        httpOnly:true,
+    res.cookie("cookie2","value", {
+        httpOnly:false,
         signed:false,
-        secure:true, 
-        sameSite:"lax", 
-        path:"/", 
-        domain:"localhost"
+        secure:false, 
+        sameSite:"strict", 
+        path:"/"
     })
     return res.send("probando123")
 }
