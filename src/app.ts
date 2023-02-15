@@ -1,6 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser"
 import indexRouterV1 from "./V1/routes/index.routes";
+import cors from "cors"
 
 const port = process.env.PORT || 4000
 
@@ -10,9 +11,11 @@ app.set("port", port);
 // midlewares
 app.use(express.json());
 app.use(cookieParser())
+app.use(cors({
+    origin: ["https://regal-meringue-7a654a.netlify.app/","http://localhost:5173"],
+    credentials:true
+}))
 app.use((req, res, next)=>{
-    res.header("Access-Control-Allow-Origin","http://localhost:5173")
-    res.header("Access-Control-Allow-Credentials", "true")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-Widht, Content-Type, Accept")
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
     next();
