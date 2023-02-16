@@ -11,11 +11,15 @@ app.set("port", port);
 // midlewares
 app.use(express.json());
 app.use(cookieParser())
-app.use(cors({
-    origin: ["https://regal-meringue-7a654a.netlify.app/","http://localhost:5173"],
-    credentials:true
-}))
+
 app.use((req, res, next)=>{
+    const allowedOrigins = ["https://regal-meringue-7a654a.netlify.app", "http://localhost:3000"]
+    const origin = req.headers.origin as string;
+    console.log({origin})
+    if(allowedOrigins.includes(origin)){
+        res.header("Access-Control-Allow-Origin", origin)
+    }
+    res.header("Access-Control-Allow-Credentials", "true")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-Widht, Content-Type, Accept")
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
     next();
