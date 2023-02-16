@@ -4,10 +4,9 @@ const getCookie : RequestHandler =(req, res, next)=>{
     res.cookie("cookie1","value", {
         httpOnly:true,
         signed:false, 
-        secure:true, 
-        sameSite:"lax", 
-        path:"/", 
-        domain:"localhost"
+        secure:false, 
+        sameSite:false, 
+        path:"/"
     })
     return res.send("probando123")
 }
