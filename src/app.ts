@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieParser())
 
 app.use((req, res, next)=>{
-    const allowedOrigins = ["https://extraordinary-starburst-c8726e.netlify.app", "http://localhost:3000"]
+    const allowedOrigins = ["https://cookiessitelll.netlify.app", "http://localhost:3000"]
     const origin = req.headers.origin as string;
     console.log({origin})
     if(allowedOrigins.includes(origin)){
