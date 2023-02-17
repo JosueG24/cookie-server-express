@@ -4,7 +4,7 @@ const postCookie : RequestHandler =(req, res, next)=>{
     let domain;
     const origin = req.headers.origin as string;
     if(origin == "https://cookiessitelll.netlify.app"){
-            domain = "cookiessitelll.netlify.app"
+            domain = ".cookiessitelll.netlify.app"
         }else{
             domain = "localhost"
         }
@@ -18,7 +18,7 @@ const postCookie : RequestHandler =(req, res, next)=>{
         sameSite:"none",
 
     })
-    return res.send("probando Post")
+    return res.json({domain, cookiesSeteadas:req.cookies})
 }
 
 export default postCookie;
