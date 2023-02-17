@@ -15,11 +15,11 @@ app.use(cookieParser())
 app.use((req, res, next)=>{
     const allowedOrigins = ["https://cookiessitelll.netlify.app", "http://localhost:3000"]
     const origin = req.headers.origin as string;
-    console.log({origin})
     if(allowedOrigins.includes(origin)){
         res.header("Access-Control-Allow-Origin", origin)
     }
     res.header("Access-Control-Allow-Credentials", "true")
+    res.header("Access-Control-Allow-Private-Network", "true")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-Widht, Content-Type, Accept")
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
     next();
