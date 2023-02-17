@@ -1,9 +1,16 @@
 import { RequestHandler } from "express";
 
 const postCookie : RequestHandler =(req, res, next)=>{
-    console.log(req.headers.origin)
+    let domain;
+    const origin = req.headers.origin as string;
+    if(origin == "https://cookiessitelll.netlify.app"){
+            domain = ".netlify.app"
+        }else{
+            domain = "localhost"
+        }
+        
     res.cookie("cookie1","value", {
-        domain: ".netlify.app",
+        domain: domain,
         path:"/",
         maxAge: 1000*60*60*24,
         httpOnly:true,
