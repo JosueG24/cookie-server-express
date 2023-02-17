@@ -1,14 +1,17 @@
 import { RequestHandler } from "express";
 
 const postCookie : RequestHandler =(req, res, next)=>{
-    res.cookie("cookie2","value", {
+    console.log(req.headers.origin)
+    res.cookie("cookie1","value", {
+        domain: ".netlify.app",
+        path:"/",
         maxAge: 1000*60*60*24,
-        httpOnly:false,
+        httpOnly:true,
         secure: true,
         sameSite:"none",
-        domain: ".netlify.app"
+
     })
-    return res.send("probando123")
+    return res.send("probando Post")
 }
 
 export default postCookie;
