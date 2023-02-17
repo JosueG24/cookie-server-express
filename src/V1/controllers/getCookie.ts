@@ -4,10 +4,11 @@ const getCookie : RequestHandler =(req, res, next)=>{
     let domain;
     const origin = req.headers.origin as string;
     if(origin == "https://cookiessitelll.netlify.app"){
-            domain = ".cookiessitelll.netlify.app"
+            domain = "cookiessitelll.netlify.app"
         }else{
             domain = "localhost"
         }
+
     res.cookie("cookie2","value", {
         domain: domain,
         path:"/",
