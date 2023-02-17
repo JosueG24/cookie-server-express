@@ -4,7 +4,7 @@ const getCookie : RequestHandler =(req, res, next)=>{
     res.cookie("cookie1","value", {
         httpOnly:true,
         secure: true, 
-        sameSite:"lax",
+        sameSite:"none",
     })
     return res.send("probando123")
 }
